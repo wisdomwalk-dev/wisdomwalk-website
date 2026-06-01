@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WisdomWalk Inc</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: '#0f172a',
+              'navy-light': '#1e293b',
+              offwhite: '#faf9f7',
+              gold: '#c9a84c',
+              'gold-dark': '#b8952f',
+              'gold-light': '#e0cc7a',
+              sage: '#6b8f6e',
+              'sage-light': '#f0f4f0',
+              'sage-muted': '#8aad8d',
+            },
+            fontFamily: {
+              display: ['"Playfair Display"', 'Georgia', 'serif'],
+              body: ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --navy: #0f172a;
+        --navy-light: #1e293b;
+        --offwhite: #faf9f7;
+        --gold: #c9a84c;
+        --gold-dark: #b8952f;
+        --gold-light: #e0cc7a;
+        --sage: #6b8f6e;
+        --sage-light: #f0f4f0;
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        color: var(--navy);
+        background: var(--offwhite);
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', Georgia, serif;
+      }
+
+      /* Dot pattern for hero */
+      .dot-pattern {
+        background-image: radial-gradient(rgba(201, 168, 76, 0.08) 1px, transparent 1px);
+        background-size: 24px 24px;
+      }
+
+      /* Fade-in animation */
+      .fade-section {
+        opacity: 0;
+        transform: translateY(32px);
+        transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .fade-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Card hover */
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+      }
+
+      /* Gold top border */
+      .gold-top-border {
+        border-top: 3px solid var(--gold);
+      }
+
+      /* Scroll indicator bounce */
+      @keyframes bounce-gentle {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(8px); }
+      }
+      .scroll-bounce {
+        animation: bounce-gentle 2.5s ease-in-out infinite;
+      }
+
+      /* Nav active link */
+      .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold);
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--gold);
+      }
+
+      /* Back to top button */
+      .back-to-top {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform: translateY(8px);
+      }
+      .back-to-top.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      /* Stat divider */
+      .stat-divider {
+        width: 1px;
+        height: 60px;
+        background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      }
+
+      /* Quote left border */
+      .quote-border {
+        border-left: 4px solid var(--gold);
+      }
+
+      /* Wave SVG at hero bottom */
+      .hero-wave {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+      }
+      .hero-wave svg {
+        display: block;
+        width: 100%;
+        height: 60px;
+      }
+
+      /* Pill badges */
+      .pill-badge {
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .pill-badge:hover {
+        background-color: var(--gold);
+        color: white;
+      }
+
+      /* Mobile menu */
+      .mobile-menu-overlay {
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      .mobile-menu-overlay.hidden-menu {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .mobile-menu-overlay.show-menu {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Navbar scroll effect */
+      .navbar-scrolled {
+        background: rgba(15, 23, 42, 0.92) !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      /* Contact card enhanced */
+      .contact-card-large {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .contact-card-large:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1);
+      }
+    </style>
+</head>
+<body data-id="0" class="antialiased">
+    <app-icon data-id="1" hidden data-icon="footprints" data-palette="Earth"></app-icon>
+
+    <!-- ===== STICKY NAVIGATION ===== -->
+    <header data-id="2" id="navbar-a1b2" class="fixed top-0 left-0 w-full z-50 bg-navy transition-all duration-300">
+      <div data-id="3" class="max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8 py-4">
+        <!-- Logo -->
+        <a data-id="4" href="#home" id="logo-link-c3d4" class="flex items-baseline gap-1 no-underline">
+          <span data-id="5" class="font-display text-gold text-xl md:text-2xl font-bold tracking-tight">WisdomWalk</span>
+          <span data-id="6" class="font-body text-white text-xs md:text-sm font-light ml-0.5">Inc.</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav data-id="7" class="hidden md:flex items-center gap-8">
+          <a data-id="8" href="#home" class="nav-link text-white text-sm font-medium tracking-wide" data-nav="home">Home</a>
+          <a data-id="9" href="#mission" class="nav-link text-white text-sm font-medium tracking-wide" data-nav="mission">Mission</a>
+          <a data-id="10" href="#about" class="nav-link text-white text-sm font-medium tracking-wide" data-nav="about">About</a>
+          <a data-id="11" href="#contact" class="nav-link text-white text-sm font-medium tracking-wide" data-nav="contact">Contact</a>
+          <a data-id="12" href="#contact" id="cta-nav-e5f6" class="bg-gold text-navy font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-gold-dark transition-colors duration-300 min-h-[44px] flex items-center">Get In Touch</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button data-id="13" id="mobile-menu-btn-g7h8" class="md:hidden p-2 text-white min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Open menu">
+          <i data-id="14" data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div data-id="15" id="mobile-menu-i9j0" class="mobile-menu-overlay hidden-menu fixed inset-0 z-[60] bg-navy flex flex-col">
+      <div data-id="16" class="flex items-center justify-between px-5 py-4">
+        <span data-id="17" class="font-display text-gold text-xl font-bold">WisdomWalk<span data-id="18" class="font-body text-white text-xs font-light ml-0.5">Inc.</span></span>
+        <button data-id="19" id="mobile-menu-close-k1l2" class="p-2 text-white min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Close menu">
+          <i data-id="20" data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <nav data-id="21" class="flex flex-col items-center justify-center flex-1 gap-8">
+        <a data-id="22" href="#home" class="mobile-nav-link text-white text-2xl font-display font-semibold hover:text-gold transition-colors">Home</a>
+        <a data-id="23" href="#mission" class="mobile-nav-link text-white text-2xl font-display font-semibold hover:text-gold transition-colors">Mission</a>
+        <a data-id="24" href="#about" class="mobile-nav-link text-white text-2xl font-display font-semibold hover:text-gold transition-colors">About</a>
+        <a data-id="25" href="#contact" class="mobile-nav-link text-white text-2xl font-display font-semibold hover:text-gold transition-colors">Contact</a>
+        <a data-id="26" href="#contact" class="mobile-nav-cta bg-gold text-navy font-semibold text-lg px-8 py-3 rounded-full hover:bg-gold-dark transition-colors mt-4">Get In Touch</a>
+      </nav>
+    </div>
+
+    <main data-id="27">
+
+    <!-- ===== HERO SECTION ===== -->
+    <section data-id="28" id="home" class="relative min-h-screen flex items-center justify-center bg-navy dot-pattern overflow-hidden">
+      <!-- Radial gradient overlay -->
+      <div data-id="29" class="absolute inset-0 bg-gradient-to-b from-navy via-transparent to-navy opacity-60 pointer-events-none"></div>
+      <div data-id="30" class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(201,168,76,0.06)_0%,_transparent_70%)] pointer-events-none"></div>
+
+      <div data-id="31" class="relative z-10 text-center max-w-4xl mx-auto px-5 md:px-8 pt-20 pb-24">
+        <!-- Decorative small motif -->
+        <div data-id="32" class="flex items-center justify-center gap-3 mb-8">
+          <span data-id="33" class="block w-8 h-px bg-gold"></span>
+          <svg data-id="34" class="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="currentColor"><path data-id="35" d="M12 2l2.09 6.26L21 9.27l-5 4.37L17.18 21 12 17.27 6.82 21 8 13.64 3 9.27l6.91-1.01L12 2z"/></svg>
+          <span data-id="36" class="block w-8 h-px bg-gold"></span>
+        </div>
+
+        <h1 data-id="37" id="hero-heading-m3n4" class="font-display text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-6 tracking-tight">
+          Walking in Wisdom,<br data-id="38" class="hidden sm:block" /> Together.
+        </h1>
+        <p data-id="39" id="hero-sub-o5p6" class="font-body text-gold-light text-base md:text-lg lg:text-xl font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+          Harnessing AI and technology to spread love, faith, and hope — one innovation at a time.
+        </p>
+        <div data-id="40" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a data-id="41" href="#mission" id="hero-cta1-q7r8" class="bg-gold text-navy font-semibold px-8 py-3.5 rounded-full text-sm md:text-base hover:bg-gold-dark transition-colors duration-300 min-h-[44px] flex items-center">Our Mission</a>
+          <a data-id="42" href="#about" id="hero-cta2-s9t0" class="border-2 border-white text-white font-semibold px-8 py-3.5 rounded-full text-sm md:text-base hover:bg-white hover:text-navy transition-all duration-300 min-h-[44px] flex items-center">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div data-id="43" class="absolute bottom-24 md:bottom-20 left-1/2 -translate-x-1/2 z-10 scroll-bounce">
+        <i data-id="44" data-lucide="chevron-down" class="w-6 h-6 text-gold opacity-60"></i>
+      </div>
+
+      <!-- Hero wave divider -->
+      <div data-id="45" class="hero-wave z-10">
+        <svg data-id="46" viewBox="0 0 1440 60" preserveAspectRatio="none" fill="var(--offwhite)">
+          <path data-id="47" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,30 1440,40 L1440,60 L0,60 Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ===== MISSION SECTION ===== -->
+    <section data-id="48" id="mission" class="bg-offwhite py-20 md:py-28 lg:py-32">
+      <div data-id="49" class="fade-section max-w-6xl mx-auto px-5 md:px-8">
+        <!-- Section label -->
+        <div data-id="50" class="text-center mb-4">
+          <span data-id="51" class="font-body text-gold text-xs md:text-sm font-semibold tracking-[0.2em] uppercase">Our Mission</span>
+        </div>
+        <h2 data-id="52" id="mission-heading-u1v2" class="font-display text-navy text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6">
+          Guided by Faith, Powered by Technology
+        </h2>
+        <p data-id="53" id="mission-body-w3x4" class="font-body text-navy/70 text-base md:text-lg text-center max-w-3xl mx-auto mb-16 leading-relaxed">
+          WisdomWalk Inc. exists to harness the power of Artificial Intelligence and modern technology as instruments of divine purpose — spreading love, faith, and hope to every corner of the world. We believe technology is not just a tool, but a bridge that connects hearts, transforms communities, and amplifies the timeless message of God's love.
+        </p>
+
+        <!-- Feature Cards -->
+        <div data-id="54" class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <!-- Card 1: AI for Good -->
+          <div data-id="55" id="card-mentorship-y5z6" class="card-hover gold-top-border bg-white rounded-xl p-8 shadow-sm">
+            <div data-id="56" class="w-14 h-14 rounded-full bg-sage-light flex items-center justify-center mb-5">
+              <i data-id="57" data-lucide="bot" class="w-7 h-7 text-sage"></i>
+            </div>
+            <h3 data-id="58" class="font-display text-navy text-xl font-semibold mb-3">AI for Good</h3>
+            <p data-id="59" class="font-body text-navy/60 text-sm leading-relaxed">Leveraging cutting-edge artificial intelligence to reach people where they are — online, in real time, and at scale.</p>
+          </div>
+
+          <!-- Card 2: Tech-Driven Outreach -->
+          <div data-id="60" id="card-outreach-a7b8" class="card-hover gold-top-border bg-white rounded-xl p-8 shadow-sm">
+            <div data-id="61" class="w-14 h-14 rounded-full bg-sage-light flex items-center justify-center mb-5">
+              <i data-id="62" data-lucide="lightbulb" class="w-7 h-7 text-sage"></i>
+            </div>
+            <h3 data-id="63" class="font-display text-navy text-xl font-semibold mb-3">Tech-Driven Outreach</h3>
+            <p data-id="64" class="font-body text-navy/60 text-sm leading-relaxed">Using digital platforms, data, and innovation to spread the Gospel and serve communities with love and compassion.</p>
+          </div>
+
+          <!-- Card 3: Faith & Love -->
+          <div data-id="65" id="card-discipleship-c9d0" class="card-hover gold-top-border bg-white rounded-xl p-8 shadow-sm">
+            <div data-id="66" class="w-14 h-14 rounded-full bg-sage-light flex items-center justify-center mb-5">
+              <i data-id="67" data-lucide="heart" class="w-7 h-7 text-sage"></i>
+            </div>
+            <h3 data-id="68" class="font-display text-navy text-xl font-semibold mb-3">Faith &amp; Love</h3>
+            <p data-id="69" class="font-body text-navy/60 text-sm leading-relaxed">At the heart of every algorithm and every program is a simple mission: love God, love people, and let technology carry that message further.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section data-id="70" id="about" class="bg-offwhite py-20 md:py-28 lg:py-32">
+      <div data-id="71" class="fade-section max-w-6xl mx-auto px-5 md:px-8">
+        <div data-id="72" class="text-center mb-4">
+          <span data-id="73" class="font-body text-gold text-xs md:text-sm font-semibold tracking-[0.2em] uppercase">About Us</span>
+        </div>
+        <h2 data-id="74" id="about-heading-i5j6" class="font-display text-navy text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-14">
+          Who We Are
+        </h2>
+
+        <!-- Two-column layout -->
+        <div data-id="75" class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start mb-14">
+          <!-- Left: Body text -->
+          <div data-id="76">
+            <p data-id="77" id="about-body-k7l8" class="font-body text-navy/70 text-base md:text-lg leading-relaxed mb-6">
+              WisdomWalk Inc. was founded on the belief that wisdom is both a gift and a discipline — one that must be sought, shared, and lived out daily. Our team of dedicated leaders, mentors, and volunteers bring diverse backgrounds united by a single mission: to walk with people toward wholeness, purpose, and faith-filled living.
+            </p>
+            <p data-id="78" class="font-body text-navy/70 text-base md:text-lg leading-relaxed">
+              We are non-denominational, community-centered, and committed to making wisdom accessible to all.
+            </p>
+          </div>
+
+          <!-- Right: Quote card -->
+          <div data-id="79" id="quote-card-m9n0" class="quote-border bg-navy rounded-xl p-8 md:p-10">
+            <svg data-id="80" class="w-8 h-8 text-gold mb-4 opacity-40" viewBox="0 0 24 24" fill="currentColor">
+              <path data-id="81" d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C9.591 11.7 11 13.166 11 15c0 1.933-1.567 3.5-3.5 3.5-1.182 0-2.283-.546-2.917-1.179zM16.583 17.321C15.553 16.227 15 15 15 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C21.591 11.7 23 13.166 23 15c0 1.933-1.567 3.5-3.5 3.5-1.182 0-2.283-.546-2.917-1.179z"/>
+            </svg>
+            <p data-id="82" class="font-display text-white text-lg md:text-xl italic leading-relaxed mb-4">
+              "The beginning of wisdom is this: Get wisdom, and whatever you get, get insight."
+            </p>
+            <p data-id="83" class="font-body text-gold text-sm font-medium">— Proverbs 4:7 (ESV)</p>
+          </div>
+        </div>
+
+        <!-- Value pills -->
+        <div data-id="84" class="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+          <span data-id="85" class="pill-badge font-body text-sm font-medium text-gold border-2 border-gold rounded-full px-6 py-2 cursor-default">Integrity</span>
+          <span data-id="86" class="pill-badge font-body text-sm font-medium text-gold border-2 border-gold rounded-full px-6 py-2 cursor-default">Compassion</span>
+          <span data-id="87" class="pill-badge font-body text-sm font-medium text-gold border-2 border-gold rounded-full px-6 py-2 cursor-default">Faith</span>
+          <span data-id="88" class="pill-badge font-body text-sm font-medium text-gold border-2 border-gold rounded-full px-6 py-2 cursor-default">Excellence</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section data-id="89" id="contact" class="bg-sage-light py-20 md:py-28 lg:py-32">
+      <div data-id="90" class="fade-section max-w-6xl mx-auto px-5 md:px-8">
+        <div data-id="91" class="text-center mb-4">
+          <span data-id="92" class="font-body text-gold text-xs md:text-sm font-semibold tracking-[0.2em] uppercase">Contact Us</span>
+        </div>
+        <h2 data-id="93" id="contact-heading-o1p2" class="font-display text-navy text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4">
+          Let's Walk Together
+        </h2>
+        <p data-id="94" class="font-body text-navy/60 text-base md:text-lg text-center max-w-2xl mx-auto mb-16 leading-relaxed">
+          Whether you're looking to partner with us, join a program, or simply learn more — we'd love to hear from you.
+        </p>
+
+        <!-- Two contact cards centered -->
+        <div data-id="95" class="flex flex-col md:flex-row items-stretch justify-center gap-6 md:gap-8 max-w-3xl mx-auto">
+          <!-- Location Card -->
+          <div data-id="96" id="info-location-e7f8" class="contact-card-large gold-top-border bg-white rounded-2xl p-8 md:p-10 shadow-sm flex-1 flex flex-col items-center text-center">
+            <div data-id="97" class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mb-5">
+              <i data-id="98" data-lucide="map-pin" class="w-7 h-7 text-gold"></i>
+            </div>
+            <h4 data-id="99" class="font-display text-navy text-xl font-semibold mb-2">Location</h4>
+            <p data-id="100" class="font-body text-navy/60 text-base leading-relaxed">Alpharetta, GA,<br data-id="101">United States</p>
+          </div>
+
+          <!-- Email Card -->
+          <div data-id="102" id="info-email-g9h0" class="contact-card-large gold-top-border bg-white rounded-2xl p-8 md:p-10 shadow-sm flex-1 flex flex-col items-center text-center">
+            <div data-id="103" class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mb-5">
+              <i data-id="104" data-lucide="mail" class="w-7 h-7 text-gold"></i>
+            </div>
+            <h4 data-id="105" class="font-display text-navy text-xl font-semibold mb-2">Email</h4>
+            <a data-id="106" href="mailto:info@wisdomwalk.live" class="font-body text-gold text-base font-medium hover:text-gold-dark transition-colors duration-300 underline underline-offset-4 decoration-gold/30 hover:decoration-gold">info@wisdomwalk.live</a>
+<a data-id="106" href="mailto:mission@wisdomwalk.live" class="font-body text-gold text-base font-medium hover:text-gold-dark transition-colors duration-300 underline underline-offset-4 decoration-gold/30 hover:decoration-gold">mission@wisdomwalk.live</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer data-id="107" id="footer-k3l4" class="bg-navy pt-16 pb-8">
+      <div data-id="108" class="max-w-6xl mx-auto px-5 md:px-8">
+        <div data-id="109" class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-14">
+          <!-- Logo + Tagline -->
+          <div data-id="110" class="md:col-span-1">
+            <div data-id="111" class="flex items-baseline gap-1 mb-3">
+              <span data-id="112" class="font-display text-gold text-xl font-bold">WisdomWalk</span>
+              <span data-id="113" class="font-body text-white text-xs font-light">Inc.</span>
+            </div>
+            <p data-id="114" class="font-body text-white/40 text-sm leading-relaxed">Walking in Wisdom, Together.</p>
+          </div>
+
+          <!-- Quick Links -->
+          <div data-id="115">
+            <h5 data-id="116" class="font-body text-white text-sm font-semibold mb-4 tracking-wide">Quick Links</h5>
+            <ul data-id="117" class="space-y-2.5">
+              <li data-id="118"><a data-id="119" href="#home" class="font-body text-white/40 text-sm hover:text-gold transition-colors">Home</a></li>
+              <li data-id="120"><a data-id="121" href="#mission" class="font-body text-white/40 text-sm hover:text-gold transition-colors">Mission</a></li>
+              <li data-id="122"><a data-id="123" href="#about" class="font-body text-white/40 text-sm hover:text-gold transition-colors">About</a></li>
+              <li data-id="124"><a data-id="125" href="#contact" class="font-body text-white/40 text-sm hover:text-gold transition-colors">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Programs -->
+          <div data-id="126">
+            <h5 data-id="127" class="font-body text-white text-sm font-semibold mb-4 tracking-wide">Programs</h5>
+            <ul data-id="128" class="space-y-2.5">
+              <li data-id="129"><span data-id="130" class="font-body text-white/40 text-sm">AI for Good</span></li>
+              <li data-id="131"><span data-id="132" class="font-body text-white/40 text-sm">Tech-Driven Outreach</span></li>
+              <li data-id="133"><span data-id="134" class="font-body text-white/40 text-sm">Faith &amp; Love</span></li>
+              <li data-id="135"><span data-id="136" class="font-body text-white/40 text-sm">Youth Programs</span></li>
+            </ul>
+          </div>
+
+          <!-- Connect -->
+          <div data-id="137">
+            <h5 data-id="138" class="font-body text-white text-sm font-semibold mb-4 tracking-wide">Connect</h5>
+            <div data-id="139" class="flex items-center gap-3">
+              <a data-id="140" href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-gold hover:text-navy transition-all duration-300" aria-label="LinkedIn">
+                <i data-id="141" data-lucide="linkedin" class="w-4 h-4"></i>
+              </a>
+              <a data-id="142" href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-gold hover:text-navy transition-all duration-300" aria-label="Facebook">
+                <i data-id="143" data-lucide="facebook" class="w-4 h-4"></i>
+              </a>
+              <a data-id="144" href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-gold hover:text-navy transition-all duration-300" aria-label="Instagram">
+                <i data-id="145" data-lucide="instagram" class="w-4 h-4"></i>
+              </a>
+              <a data-id="146" href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-gold hover:text-navy transition-all duration-300" aria-label="YouTube">
+                <i data-id="147" data-lucide="youtube" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div data-id="148" class="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p data-id="149" class="font-body text-white/30 text-xs text-center md:text-left">
+            © 2026 WisdomWalk Inc. All rights reserved. | Crafted with purpose.
+          </p>
+          <p data-id="150" class="font-body text-white/30 text-xs">
+            Made by Copilot
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button data-id="151" id="back-to-top-m5n6" class="back-to-top fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-gold text-navy shadow-lg flex items-center justify-center hover:bg-gold-dark transition-colors duration-300 cursor-pointer" aria-label="Back to top">
+      <i data-id="152" data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <script>
+      // === Icons (progressive enhancement) ===
+      if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
+        lucide.createIcons();
+      }
+
+      // === Mobile Menu ===
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn-g7h8');
+      const mobileMenuClose = document.getElementById('mobile-menu-close-k1l2');
+      const mobileMenu = document.getElementById('mobile-menu-i9j0');
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+          mobileMenu.classList.remove('hidden-menu');
+          mobileMenu.classList.add('show-menu');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+
+      if (mobileMenuClose && mobileMenu) {
+        mobileMenuClose.addEventListener('click', function() {
+          mobileMenu.classList.remove('show-menu');
+          mobileMenu.classList.add('hidden-menu');
+          document.body.style.overflow = '';
+        });
+      }
+
+      // Close mobile menu on link click
+      document.querySelectorAll('.mobile-nav-link, .mobile-nav-cta').forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (mobileMenu) {
+            mobileMenu.classList.remove('show-menu');
+            mobileMenu.classList.add('hidden-menu');
+            document.body.style.overflow = '';
+          }
+        });
+      });
+
+      // === Navbar scroll effect ===
+      const navbar = document.getElementById('navbar-a1b2');
+      window.addEventListener('scroll', function() {
+        if (navbar) {
+          if (window.scrollY > 60) {
+            navbar.classList.add('navbar-scrolled');
+          } else {
+            navbar.classList.remove('navbar-scrolled');
+          }
+        }
+      });
+
+      // === Active nav highlighting ===
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link[data-nav]');
+
+      const navObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(function(link) {
+              link.classList.remove('active');
+              if (link.getAttribute('data-nav') === id) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }, { threshold: 0.35, rootMargin: '-80px 0px -40% 0px' });
+
+      sections.forEach(function(section) {
+        navObserver.observe(section);
+      });
+
+      // === Fade-in on scroll ===
+      const fadeSections = document.querySelectorAll('.fade-section');
+      const fadeObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+      fadeSections.forEach(function(el) {
+        fadeObserver.observe(el);
+      });
+
+      // === Back to Top button ===
+      const backToTopBtn = document.getElementById('back-to-top-m5n6');
+      window.addEventListener('scroll', function() {
+        if (backToTopBtn) {
+          if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+          } else {
+            backToTopBtn.classList.remove('show');
+          }
+        }
+      });
+
+      if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    </script>
+</body>
+</html>
