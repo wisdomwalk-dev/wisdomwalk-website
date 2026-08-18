@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wisdom Walk — Privacy Policy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: '#0f172a',
+              'navy-light': '#1e293b',
+              offwhite: '#faf9f7',
+              gold: '#c9a84c',
+              'gold-dark': '#b8952f',
+              'gold-light': '#e0cc7a',
+              sage: '#6b8f6e',
+              'sage-light': '#f0f4f0',
+              'sage-muted': '#8aad8d',
+            },
+            fontFamily: {
+              display: ['"Playfair Display"', 'Georgia', 'serif'],
+              body: ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --navy: #0f172a;
+        --navy-light: #1e293b;
+        --offwhite: #faf9f7;
+        --gold: #c9a84c;
+        --gold-dark: #b8952f;
+        --gold-light: #e0cc7a;
+        --sage: #6b8f6e;
+        --sage-light: #f0f4f0;
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        color: var(--navy);
+        background: var(--offwhite);
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', Georgia, serif;
+      }
+
+      .gold-top-border {
+        border-top: 3px solid var(--gold);
+      }
+
+      .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold);
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--gold);
+      }
+
+      .back-to-top {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform: translateY(8px);
+      }
+      .back-to-top.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .mobile-menu-overlay {
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      .mobile-menu-overlay.hidden-menu {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .mobile-menu-overlay.show-menu {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .navbar-scrolled {
+        background: rgba(15, 23, 42, 0.92) !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      .legal-card {
+        transition: box-shadow 0.3s ease;
+      }
+      .legal-card:hover {
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+      }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ===== STICKY NAVIGATION ===== -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-navy transition-all duration-300">
+      <div class="max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8 py-4">
+        <!-- Logo -->
+        <a href="index.html#home" class="flex items-baseline gap-1 no-underline">
+          <span class="font-display text-gold text-xl md:text-2xl font-bold tracking-tight">WisdomWalk</span>
+          <span class="font-body text-white text-xs md:text-sm font-light ml-0.5">Inc.</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="index.html#home" class="nav-link text-white text-sm font-medium tracking-wide">Home</a>
+          <a href="index.html#mission" class="nav-link text-white text-sm font-medium tracking-wide">Mission</a>
+          <a href="index.html#about" class="nav-link text-white text-sm font-medium tracking-wide">About</a>
+          <a href="index.html#contact" class="nav-link text-white text-sm font-medium tracking-wide">Contact</a>
+          <a href="privacy-policy.html" class="nav-link active text-white text-sm font-medium tracking-wide">Privacy Policy</a>
+          <a href="delete-account.html" class="nav-link text-white text-sm font-medium tracking-wide">Delete Account</a>
+          <a href="index.html#contact" class="bg-gold text-navy font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-gold-dark transition-colors duration-300 min-h-[44px] flex items-center">Get In Touch</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-white min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Open menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu-overlay hidden-menu fixed inset-0 z-[60] bg-navy flex flex-col">
+      <div class="flex items-center justify-between px-5 py-4">
+        <span class="font-display text-gold text-xl font-bold">WisdomWalk<span class="font-body text-white text-xs font-light ml-0.5">Inc.</span></span>
+        <button id="mobile-menu-close" class="p-2 text-white min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Close menu">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col items-center justify-center flex-1 gap-6">
+        <a href="index.html#home" class="mobile-nav-link text-white text-2xl font-display font-semibold hover:text-gold transition-colors">Home</a>
+        <a href="index.html#mission" class="mobile-nav-link text-white text-2xl font-display font-semibold hover:text-gold transition-colors">Mission</a>
+        <a href="index.html#about" class="mobile-nav-link text-white text-2xl font-display font-semibold hover:text-gold transition-colors">About</a>
+        <a href="index.html#contact" class="mobile-nav-link text-white text-2xl font-display font-semibold hover:text-gold transition-colors">Contact</a>
+        <a href="privacy-policy.html" class="mobile-nav-link text-gold text-2xl font-display font-semibold">Privacy Policy</a>
+        <a href="delete-account.html" class="mobile-nav-link text-white text-2xl font-display font-semibold hover:text-gold transition-colors">Delete Account</a>
+        <a href="index.html#contact" class="mobile-nav-cta bg-gold text-navy font-semibold text-lg px-8 py-3 rounded-full hover:bg-gold-dark transition-colors mt-4">Get In Touch</a>
+      </nav>
+    </div>
+
+    <main class="pt-28 pb-20 md:pt-36 md:pb-28">
+      <div class="max-w-4xl mx-auto px-5 md:px-8">
+        
+        <!-- Header Banner -->
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/10 text-gold text-xs font-semibold uppercase tracking-wider mb-4">
+            <i data-lucide="shield-check" class="w-4 h-4"></i> Legal &amp; Transparency
+          </div>
+          <h1 class="font-display text-navy text-3xl md:text-5xl font-bold mb-4 tracking-tight">Wisdom Walk — Privacy Policy</h1>
+          <p class="font-body text-navy/60 text-sm md:text-base">Last updated: 4 July 2026</p>
+          <div class="w-16 h-1 bg-gold mx-auto mt-6 rounded-full"></div>
+        </div>
+
+        <!-- Privacy Content Container -->
+        <div class="bg-white rounded-2xl p-6 md:p-12 shadow-sm border border-navy/5 space-y-10 text-navy/80 text-base leading-relaxed">
+          
+          <p class="text-lg text-navy font-medium leading-relaxed">
+            This Privacy Policy explains how <strong>Wisdom Walk</strong> ("the app", "we", "us") collects, uses, and protects your information when you use our Android application. By using Wisdom Walk you agree to the practices described here.
+          </p>
+
+          <!-- 1. Who we are -->
+          <section class="border-t border-navy/5 pt-8">
+            <h2 class="font-display text-navy text-2xl font-bold mb-4 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-gold/10 text-gold text-sm font-semibold flex items-center justify-center font-body">1</span>
+              Who we are
+            </h2>
+            <p>
+              Wisdom Walk is a Bible reading and devotional app by <a href="https://wisdomwalk.live" class="text-gold font-medium hover:underline">wisdomwalk.live</a>. For any privacy question or request, contact us at:
+            </p>
+            <div class="mt-4 p-4 rounded-xl bg-offwhite border border-gold/20 flex flex-wrap gap-x-6 gap-y-2">
+              <a href="mailto:sanjay@wisdomwalk.live" class="text-gold font-semibold hover:underline flex items-center gap-1.5"><i data-lucide="mail" class="w-4 h-4"></i> sanjay@wisdomwalk.live</a>
+              <a href="mailto:info@wisdomwalk.live" class="text-gold font-semibold hover:underline flex items-center gap-1.5"><i data-lucide="mail" class="w-4 h-4"></i> info@wisdomwalk.live</a>
+              <a href="mailto:mission@wisdomwalk.live" class="text-gold font-semibold hover:underline flex items-center gap-1.5"><i data-lucide="mail" class="w-4 h-4"></i> mission@wisdomwalk.live</a>
+            </div>
+          </section>
+
+          <!-- 2. Information we collect -->
+          <section class="border-t border-navy/5 pt-8">
+            <h2 class="font-display text-navy text-2xl font-bold mb-4 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-gold/10 text-gold text-sm font-semibold flex items-center justify-center font-body">2</span>
+              Information we collect
+            </h2>
+            <ul class="space-y-3 pl-2">
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-gold shrink-0 mt-1"></i>
+                <div><strong>Account information.</strong> When you sign in with Google, we receive your name, email address, and profile photo through our authentication provider (Supabase Auth) to create and secure your account.</div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-gold shrink-0 mt-1"></i>
+                <div><strong>Device information.</strong> We collect basic device details (device model, operating system, and a device identifier) to keep accounts secure, prevent abuse, and manage access.</div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-gold shrink-0 mt-1"></i>
+                <div><strong>App content you create.</strong> Saved verses, reading preferences, and settings. Most of this is stored locally on your device; account-related data may be synced to our servers.</div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-gold shrink-0 mt-1"></i>
+                <div><strong>Verse text for AI features.</strong> When you request an AI devotional or use the guidance chat, the relevant verse or message text is sent to Google's Gemini AI service to generate a response.</div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-gold shrink-0 mt-1"></i>
+                <div><strong>Notification tokens.</strong> If you enable reminders, we use a push notification token (via Firebase Cloud Messaging) to deliver daily verse notifications.</div>
+              </li>
+            </ul>
+            <div class="mt-6 p-4 rounded-xl bg-sage-light/50 border border-sage/20 text-navy/90 font-medium">
+              We do <strong>not</strong> collect your financial information, passwords (Google handles sign-in), precise location, contacts, photos, or microphone/camera data.
+            </div>
+          </section>
+
+          <!-- 3. How we use your information -->
+          <section class="border-t border-navy/5 pt-8">
+            <h2 class="font-display text-navy text-2xl font-bold mb-4 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-gold/10 text-gold text-sm font-semibold flex items-center justify-center font-body">3</span>
+              How we use your information
+            </h2>
+            <ul class="space-y-2.5 pl-2 list-disc list-inside">
+              <li>To provide and personalize the app (sign-in, saved verses, preferences).</li>
+              <li>To generate AI devotionals and pastoral guidance responses.</li>
+              <li>To send daily verse reminders you opt into.</li>
+              <li>To keep the service secure and prevent abuse.</li>
+            </ul>
+            <p class="mt-4 font-semibold text-navy">We do <strong>not</strong> sell your personal information.</p>
+          </section>
+
+          <!-- 4. Third-party services -->
+          <section class="border-t border-navy/5 pt-8">
+            <h2 class="font-display text-navy text-2xl font-bold mb-4 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-gold/10 text-gold text-sm font-semibold flex items-center justify-center font-body">4</span>
+              Third-party services
+            </h2>
+            <p class="mb-4">We rely on trusted third parties who process data on our behalf, each under their own privacy policies:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-4 rounded-xl bg-offwhite border border-navy/5">
+                <strong class="text-navy block mb-1">Google Sign-In &amp; Supabase Auth</strong>
+                <span class="text-sm text-navy/70">Used for user authentication and session security.</span>
+              </div>
+              <div class="p-4 rounded-xl bg-offwhite border border-navy/5">
+                <strong class="text-navy block mb-1">Google Gemini AI (Generative Language API)</strong>
+                <span class="text-sm text-navy/70">Powers devotional synthesis and pastoral chat generation.</span>
+              </div>
+              <div class="p-4 rounded-xl bg-offwhite border border-navy/5">
+                <strong class="text-navy block mb-1">Firebase Cloud Messaging</strong>
+                <span class="text-sm text-navy/70">Delivers daily verse and devotional push notifications.</span>
+              </div>
+              <div class="p-4 rounded-xl bg-offwhite border border-navy/5">
+                <strong class="text-navy block mb-1">Supabase</strong>
+                <span class="text-sm text-navy/70">Secure cloud database for account profile and device records.</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. Data retention & security -->
+          <section class="border-t border-navy/5 pt-8">
+            <h2 class="font-display text-navy text-2xl font-bold mb-4 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-gold/10 text-gold text-sm font-semibold flex items-center justify-center font-body">5</span>
+              Data retention &amp; security
+            </h2>
+            <p>
+              We keep your account data for as long as your account is active. Data in transit is encrypted using industry-standard protocols (HTTPS/TLS). You may request deletion at any time.
+            </p>
+          </section>
+
+          <!-- 6. Deleting your account and data -->
+          <section class="border-t border-navy/5 pt-8">
+            <h2 class="font-display text-navy text-2xl font-bold mb-4 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-gold/10 text-gold text-sm font-semibold flex items-center justify-center font-body">6</span>
+              Deleting your account and data
+            </h2>
+            <div class="gold-top-border bg-offwhite p-6 rounded-xl border border-navy/10 space-y-4">
+              <p>You can request deletion of your Wisdom Walk account and its associated data at any time:</p>
+              <ul class="space-y-2 list-disc list-inside">
+                <li><strong>On the web:</strong> visit our <a href="delete-account.html" class="text-gold font-semibold underline">Account Deletion page</a>.</li>
+                <li><strong>By email:</strong> contact us at <a href="mailto:sanjay@wisdomwalk.live" class="text-gold font-semibold hover:underline">sanjay@wisdomwalk.live</a>, <a href="mailto:info@wisdomwalk.live" class="text-gold font-semibold hover:underline">info@wisdomwalk.live</a>, or <a href="mailto:mission@wisdomwalk.live" class="text-gold font-semibold hover:underline">mission@wisdomwalk.live</a>.</li>
+              </ul>
+              <p class="text-sm text-navy/70 pt-2 border-t border-navy/10">
+                When you delete your account, we delete the personal data associated with it (account profile and device records). Requests are processed within 30 days.
+              </p>
+            </div>
+          </section>
+
+          <!-- 7. Children's privacy -->
+          <section class="border-t border-navy/5 pt-8">
+            <h2 class="font-display text-navy text-2xl font-bold mb-4 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-gold/10 text-gold text-sm font-semibold flex items-center justify-center font-body">7</span>
+              Children's privacy
+            </h2>
+            <p>
+              Wisdom Walk is intended for users aged 13 and older. We do not knowingly collect data from children under 13.
+            </p>
+          </section>
+
+          <!-- 8. Changes to this policy -->
+          <section class="border-t border-navy/5 pt-8">
+            <h2 class="font-display text-navy text-2xl font-bold mb-4 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-gold/10 text-gold text-sm font-semibold flex items-center justify-center font-body">8</span>
+              Changes to this policy
+            </h2>
+            <p>
+              We may update this policy from time to time. Material changes will be reflected by updating the "Last updated" date above.
+            </p>
+          </section>
+
+          <!-- 9. Contact us -->
+          <section class="border-t border-navy/5 pt-8">
+            <h2 class="font-display text-navy text-2xl font-bold mb-4 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-gold/10 text-gold text-sm font-semibold flex items-center justify-center font-body">9</span>
+              Contact us
+            </h2>
+            <p class="mb-3">Questions or requests regarding privacy and data protection:</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="mailto:sanjay@wisdomwalk.live" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-navy text-white text-sm font-medium hover:bg-navy-light transition-colors"><i data-lucide="mail" class="w-4 h-4 text-gold"></i> sanjay@wisdomwalk.live</a>
+              <a href="mailto:info@wisdomwalk.live" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-navy text-white text-sm font-medium hover:bg-navy-light transition-colors"><i data-lucide="mail" class="w-4 h-4 text-gold"></i> info@wisdomwalk.live</a>
+              <a href="mailto:mission@wisdomwalk.live" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-navy text-white text-sm font-medium hover:bg-navy-light transition-colors"><i data-lucide="mail" class="w-4 h-4 text-gold"></i> mission@wisdomwalk.live</a>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-navy pt-16 pb-8">
+      <div class="max-w-6xl mx-auto px-5 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-14">
+          <!-- Logo + Tagline -->
+          <div class="md:col-span-1">
+            <div class="flex items-baseline gap-1 mb-3">
+              <span class="font-display text-gold text-xl font-bold">WisdomWalk</span>
+              <span class="font-body text-white text-xs font-light">Inc.</span>
+            </div>
+            <p class="font-body text-white/40 text-sm leading-relaxed">Walking in Wisdom, Together.</p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h5 class="font-body text-white text-sm font-semibold mb-4 tracking-wide">Quick Links</h5>
+            <ul class="space-y-2.5">
+              <li><a href="index.html#home" class="font-body text-white/40 text-sm hover:text-gold transition-colors">Home</a></li>
+              <li><a href="index.html#mission" class="font-body text-white/40 text-sm hover:text-gold transition-colors">Mission</a></li>
+              <li><a href="index.html#about" class="font-body text-white/40 text-sm hover:text-gold transition-colors">About</a></li>
+              <li><a href="index.html#contact" class="font-body text-white/40 text-sm hover:text-gold transition-colors">Contact</a></li>
+              <li><a href="privacy-policy.html" class="font-body text-gold text-sm hover:text-gold transition-colors font-medium">Privacy Policy</a></li>
+              <li><a href="delete-account.html" class="font-body text-white/40 text-sm hover:text-gold transition-colors">Delete Account</a></li>
+            </ul>
+          </div>
+
+          <!-- Programs -->
+          <div>
+            <h5 class="font-body text-white text-sm font-semibold mb-4 tracking-wide">Programs</h5>
+            <ul class="space-y-2.5">
+              <li><span class="font-body text-white/40 text-sm">AI for Good</span></li>
+              <li><span class="font-body text-white/40 text-sm">Tech-Driven Outreach</span></li>
+              <li><span class="font-body text-white/40 text-sm">Faith &amp; Love</span></li>
+              <li><span class="font-body text-white/40 text-sm">Youth Programs</span></li>
+            </ul>
+          </div>
+
+          <!-- Connect -->
+          <div>
+            <h5 class="font-body text-white text-sm font-semibold mb-4 tracking-wide">Connect</h5>
+            <div class="flex items-center gap-3">
+              <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-gold hover:text-navy transition-all duration-300" aria-label="LinkedIn">
+                <i data-lucide="linkedin" class="w-4 h-4"></i>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-gold hover:text-navy transition-all duration-300" aria-label="Facebook">
+                <i data-lucide="facebook" class="w-4 h-4"></i>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-gold hover:text-navy transition-all duration-300" aria-label="Instagram">
+                <i data-lucide="instagram" class="w-4 h-4"></i>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-gold hover:text-navy transition-all duration-300" aria-label="YouTube">
+                <i data-lucide="youtube" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p class="font-body text-white/30 text-xs text-center md:text-left">
+            © 2026 WisdomWalk Inc. All rights reserved. | <a href="privacy-policy.html" class="text-gold transition-colors underline underline-offset-2">Privacy Policy</a> | <a href="delete-account.html" class="hover:text-gold transition-colors underline underline-offset-2">Delete Account</a>
+          </p>
+          <p class="font-body text-white/30 text-xs">
+            Made by Copilot
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-gold text-navy shadow-lg flex items-center justify-center hover:bg-gold-dark transition-colors duration-300 cursor-pointer" aria-label="Back to top">
+      <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <script>
+      if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
+        lucide.createIcons();
+      }
+
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenuClose = document.getElementById('mobile-menu-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+          mobileMenu.classList.remove('hidden-menu');
+          mobileMenu.classList.add('show-menu');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+
+      if (mobileMenuClose && mobileMenu) {
+        mobileMenuClose.addEventListener('click', function() {
+          mobileMenu.classList.remove('show-menu');
+          mobileMenu.classList.add('hidden-menu');
+          document.body.style.overflow = '';
+        });
+      }
+
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', function() {
+        if (navbar) {
+          if (window.scrollY > 60) {
+            navbar.classList.add('navbar-scrolled');
+          } else {
+            navbar.classList.remove('navbar-scrolled');
+          }
+        }
+      });
+
+      const backToTopBtn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function() {
+        if (backToTopBtn) {
+          if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+          } else {
+            backToTopBtn.classList.remove('show');
+          }
+        }
+      });
+
+      if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    </script>
+</body>
+</html>
