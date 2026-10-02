@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Dedicated AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+Sitemap: https://wisdomwalk.studio/sitemap.xml

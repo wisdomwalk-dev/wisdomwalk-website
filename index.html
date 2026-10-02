@@ -3,7 +3,65 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WisdomWalk Inc</title>
+    <title>Wisdom Walk - Free Bible Study App with AI Devotionals</title>
+    <meta name="description" content="Read the Bible offline in 9 languages with daily AI devotionals, audio chapters, and pastoral guidance. 100% free, no subscription." />
+    <link rel="canonical" href="https://wisdomwalk.studio/" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wisdomwalk.studio/" />
+    <meta property="og:title" content="Wisdom Walk - Free Bible Study App with AI Devotionals" />
+    <meta property="og:description" content="Read the Bible offline in 9 languages with daily AI devotionals, audio chapters, and pastoral guidance. 100% free, no subscription." />
+    <meta property="og:image" content="https://wisdomwalk.studio/assets/preview.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://wisdomwalk.studio/" />
+    <meta name="twitter:title" content="Wisdom Walk - Free Bible Study App with AI Devotionals" />
+    <meta name="twitter:description" content="Read the Bible offline in 9 languages with daily AI devotionals, audio chapters, and pastoral guidance. 100% free, no subscription." />
+    <meta name="twitter:image" content="https://wisdomwalk.studio/assets/preview.png" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://wisdomwalk.studio/#organization",
+          "name": "WisdomWalk Inc.",
+          "url": "https://wisdomwalk.studio/",
+          "sameAs": [
+            "https://www.instagram.com/wisdomwalkai/"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Alpharetta",
+            "addressRegion": "GA",
+            "postalCode": "30005",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "MobileApplication",
+          "@id": "https://wisdomwalk.studio/#app",
+          "name": "Wisdom Walk",
+          "operatingSystem": "iOS, Android",
+          "applicationCategory": "LifestyleApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "installUrl": [
+            "https://apps.apple.com/us/app/wisdom-walk/id6806832560",
+            "https://play.google.com/store/apps/details?id=com.wisdomwalk.bible"
+          ],
+          "description": "Read the Bible offline in 9 languages with daily AI devotionals, audio chapters, and pastoral guidance. 100% free, no subscription."
+        }
+      ]
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -220,7 +278,7 @@
           <a href="#app" class="nav-link text-white text-sm font-medium tracking-wide" data-nav="app">App</a>
           <a data-id="10" href="#about" class="nav-link text-white text-sm font-medium tracking-wide" data-nav="about">About</a>
           <a data-id="11" href="#contact" class="nav-link text-white text-sm font-medium tracking-wide" data-nav="contact">Contact</a>
-          <a data-id="12" href="#contact" id="cta-nav-e5f6" class="bg-gold text-navy font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-gold-dark transition-colors duration-300 min-h-[44px] flex items-center">Get In Touch</a>
+          <a href="#app" id="cta-nav-e5f6" class="bg-gold text-navy font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-gold-dark transition-colors duration-300 min-h-[44px] flex items-center">Download Free</a>
         </nav>
 
         <!-- Mobile Menu Button -->
@@ -244,7 +302,7 @@
         <a href="#app" class="mobile-nav-link text-white text-2xl font-display font-semibold hover:text-gold transition-colors">App</a>
         <a data-id="24" href="#about" class="mobile-nav-link text-white text-2xl font-display font-semibold hover:text-gold transition-colors">About</a>
         <a data-id="25" href="#contact" class="mobile-nav-link text-white text-2xl font-display font-semibold hover:text-gold transition-colors">Contact</a>
-        <a data-id="26" href="#contact" class="mobile-nav-cta bg-gold text-navy font-semibold text-lg px-8 py-3 rounded-full hover:bg-gold-dark transition-colors mt-4">Get In Touch</a>
+        <a href="#app" class="mobile-nav-cta bg-gold text-navy font-semibold text-lg px-8 py-3 rounded-full hover:bg-gold-dark transition-colors mt-4">Download Free</a>
       </nav>
     </div>
 
@@ -265,11 +323,20 @@
         </div>
 
         <h1 data-id="37" id="hero-heading-m3n4" class="font-display text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-6 tracking-tight">
-          Walking in Wisdom,<br data-id="38" class="hidden sm:block" /> Together.
+          Study the Bible in 9 languages,<br data-id="38" class="hidden sm:block" /> offline and free.
         </h1>
-        <p data-id="39" id="hero-sub-o5p6" class="font-body text-gold-light text-base md:text-lg lg:text-xl font-light max-w-2xl mx-auto mb-10 leading-relaxed">
-          Harnessing AI and technology to spread love, faith, and hope — one innovation at a time.
+        <p data-id="39" id="hero-sub-o5p6" class="font-body text-gold-light text-base md:text-lg lg:text-xl font-light max-w-2xl mx-auto mb-6 leading-relaxed">
+          Daily devotionals, audio chapters, AI cinematic videos, and pastoral guidance, all in your pocket. No subscription, no internet required.
         </p>
+
+        <!-- 100% Free Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-gold/40 text-gold-light text-xs sm:text-sm font-medium mb-8">
+          <svg class="w-4 h-4 text-gold" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          <span>100% Free · No Subscription · No In-App Purchases</span>
+        </div>
+
         <div data-id="40" class="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap">
           <a href="https://apps.apple.com/us/app/wisdom-walk/id6806832560" target="_blank" rel="noopener noreferrer" class="bg-gold text-navy font-bold px-7 py-3.5 rounded-full text-sm md:text-base hover:bg-gold-dark transition-colors duration-300 min-h-[44px] flex items-center gap-2.5">
             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -283,8 +350,7 @@
             </svg>
             <span>Google Play</span>
           </a>
-          <a data-id="41" href="#mission" id="hero-cta1-q7r8" class="border-2 border-gold text-gold font-semibold px-7 py-3.5 rounded-full text-sm md:text-base hover:bg-gold hover:text-navy transition-colors duration-300 min-h-[44px] flex items-center">Our Mission</a>
-          <a data-id="42" href="#about" id="hero-cta2-s9t0" class="border-2 border-white text-white font-semibold px-7 py-3.5 rounded-full text-sm md:text-base hover:bg-white hover:text-navy transition-all duration-300 min-h-[44px] flex items-center">Learn More</a>
+          <a href="#app" class="border-2 border-white/60 text-white font-semibold px-7 py-3.5 rounded-full text-sm md:text-base hover:bg-white hover:text-navy transition-all duration-300 min-h-[44px] flex items-center">Explore Features</a>
         </div>
       </div>
 
@@ -349,37 +415,115 @@
 
     <!-- ===== APP DOWNLOAD SECTION ===== -->
     <section id="app" class="bg-navy relative py-20 md:py-28 text-white overflow-hidden dot-pattern">
-      <div class="fade-section max-w-4xl mx-auto px-5 md:px-8 text-center relative z-10">
+      <div class="fade-section max-w-5xl mx-auto px-5 md:px-8 text-center relative z-10">
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/15 text-gold text-xs font-semibold uppercase tracking-wider mb-6 border border-gold/30">
           <i data-lucide="smartphone" class="w-4 h-4"></i> Mobile App Available Now
         </div>
         <h2 class="font-display text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-          Walk in Wisdom Daily with Our Mobile App
+          Walk in Wisdom Daily with Our Free Mobile App
         </h2>
-        <p class="font-body text-gold-light/90 text-base md:text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
-          Experience personalized AI devotionals, daily scripture guidance, and pastoral chat right on your smartphone. Download WisdomWalk today on iOS and Android.
+        <p class="font-body text-gold-light/90 text-base md:text-lg mb-12 leading-relaxed max-w-2xl mx-auto">
+          Experience offline Bible study in 9 languages, daily AI devotionals, audio chapters, and pastoral guidance. 100% free with no subscription.
         </p>
 
-        <!-- Feature list -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10 max-w-2xl mx-auto text-left">
-          <div class="flex items-start gap-4 bg-white/5 p-5 rounded-2xl border border-white/10">
-            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
+        <!-- Feature list: 6 features from the brief -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 text-left">
+          <!-- 1. Offline Translations -->
+          <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-gold/40 transition-colors">
+            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center mb-4">
+              <i data-lucide="book-open" class="w-5 h-5 text-gold"></i>
+            </div>
+            <h4 class="font-display text-white font-semibold text-lg mb-2">9 Offline Translations</h4>
+            <p class="text-white/70 text-sm leading-relaxed">Full access to 9 Bible translations without requiring cellular data or Wi-Fi.</p>
+          </div>
+
+          <!-- 2. Audio Chapters -->
+          <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-gold/40 transition-colors">
+            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center mb-4">
+              <i data-lucide="headphones" class="w-5 h-5 text-gold"></i>
+            </div>
+            <h4 class="font-display text-white font-semibold text-lg mb-2">Audio with Auto-Advance</h4>
+            <p class="text-white/70 text-sm leading-relaxed">Listen to Scripture on your daily commute with adjustable speed and seamless chapter playback.</p>
+          </div>
+
+          <!-- 3. Cinematic AI Videos -->
+          <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-gold/40 transition-colors">
+            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center mb-4">
+              <i data-lucide="clapperboard" class="w-5 h-5 text-gold"></i>
+            </div>
+            <h4 class="font-display text-white font-semibold text-lg mb-2">Cinematic AI Videos</h4>
+            <p class="text-white/70 text-sm leading-relaxed">Breathtaking visual reflections bringing biblical narratives and teachings to life.</p>
+          </div>
+
+          <!-- 4. Daily Verse & AI Devotionals -->
+          <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-gold/40 transition-colors">
+            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center mb-4">
               <i data-lucide="sparkles" class="w-5 h-5 text-gold"></i>
             </div>
-            <div>
-              <h4 class="font-display text-white font-semibold text-base mb-1">AI Devotionals</h4>
-              <p class="text-white/60 text-sm leading-relaxed">Custom daily devotions powered by Gemini AI tailored to your walk with God.</p>
-            </div>
+            <h4 class="font-display text-white font-semibold text-lg mb-2">Daily Verse &amp; Devotional</h4>
+            <p class="text-white/70 text-sm leading-relaxed">Custom daily devotions and Verse of the Day powered by Gemini AI tailored to your walk with God.</p>
           </div>
-          <div class="flex items-start gap-4 bg-white/5 p-5 rounded-2xl border border-white/10">
-            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
+
+          <!-- 5. Pastoral Guidance Chat -->
+          <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-gold/40 transition-colors">
+            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center mb-4">
               <i data-lucide="message-square" class="w-5 h-5 text-gold"></i>
             </div>
-            <div>
-              <h4 class="font-display text-white font-semibold text-base mb-1">Pastoral Guidance</h4>
-              <p class="text-white/60 text-sm leading-relaxed">Interactive pastoral chat for faith, prayer, and scripture answers anytime.</p>
+            <h4 class="font-display text-white font-semibold text-lg mb-2">Pastoral Guidance Chat</h4>
+            <p class="text-white/70 text-sm leading-relaxed">Interactive pastoral chat grounded in Scripture for prayer, biblical questions, and reflection.</p>
+          </div>
+
+          <!-- 6. 9 Global Languages -->
+          <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-gold/40 transition-colors">
+            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center mb-4">
+              <i data-lucide="languages" class="w-5 h-5 text-gold"></i>
+            </div>
+            <h4 class="font-display text-white font-semibold text-lg mb-2">9 Languages (Tamil, Spanish...)</h4>
+            <p class="text-white/70 text-sm leading-relaxed">Read and reflect in your heart language including English, Tamil, Spanish, and 6 more.</p>
+          </div>
+        </div>
+
+        <!-- Screenshots Showcase -->
+        <div class="mb-14">
+          <p class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-6">Inside the App</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
+              <div class="aspect-[9/16] bg-navy-light rounded-xl flex flex-col items-center justify-center mb-3 text-gold/60 border border-white/5 p-3">
+                <i data-lucide="message-square" class="w-8 h-8 mb-2"></i>
+                <span class="text-xs text-white/50">Pastoral Chat Screen</span>
+              </div>
+              <p class="text-xs text-white/80 font-medium">Ask Questions in 9 Languages</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
+              <div class="aspect-[9/16] bg-navy-light rounded-xl flex flex-col items-center justify-center mb-3 text-gold/60 border border-white/5 p-3">
+                <i data-lucide="headphones" class="w-8 h-8 mb-2"></i>
+                <span class="text-xs text-white/50">Audio Player Screen</span>
+              </div>
+              <p class="text-xs text-white/80 font-medium">Listen with Auto-Advance</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
+              <div class="aspect-[9/16] bg-navy-light rounded-xl flex flex-col items-center justify-center mb-3 text-gold/60 border border-white/5 p-3">
+                <i data-lucide="book-open" class="w-8 h-8 mb-2"></i>
+                <span class="text-xs text-white/50">Offline Reader Screen</span>
+              </div>
+              <p class="text-xs text-white/80 font-medium">Browse 9 Offline Translations</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
+              <div class="aspect-[9/16] bg-navy-light rounded-xl flex flex-col items-center justify-center mb-3 text-gold/60 border border-white/5 p-3">
+                <i data-lucide="clapperboard" class="w-8 h-8 mb-2"></i>
+                <span class="text-xs text-white/50">Cinematic Video Screen</span>
+              </div>
+              <p class="text-xs text-white/80 font-medium">Cinematic AI Bible Stories</p>
             </div>
           </div>
+        </div>
+
+        <!-- 100% Free Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-gold/40 text-gold-light text-xs sm:text-sm font-medium mb-6">
+          <svg class="w-4 h-4 text-gold" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          <span>100% Free · No Subscription · No In-App Purchases</span>
         </div>
 
         <!-- Download Buttons -->
@@ -400,6 +544,178 @@
       </div>
     </section>
 
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <section id="testimonials" class="bg-offwhite py-20 md:py-28 border-b border-navy/5">
+      <div class="fade-section max-w-6xl mx-auto px-5 md:px-8">
+        <div class="text-center mb-12">
+          <span class="font-body text-gold text-xs md:text-sm font-semibold tracking-[0.2em] uppercase">Believer Stories</span>
+          <h2 class="font-display text-navy text-3xl md:text-4xl lg:text-5xl font-bold mt-2">
+            Growing Together in Faith
+          </h2>
+          <p class="font-body text-navy/70 text-base max-w-xl mx-auto mt-4">
+            Hear from Christians using Wisdom Walk for their daily devotionals, audio commute study, and multilingual reading.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-gold mb-4">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              </div>
+              <p class="font-body text-navy/80 text-sm leading-relaxed italic mb-6">
+                "I start every morning with the daily devotional in Tamil. Having offline Bible access while traveling back home has been an absolute blessing for my quiet time."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+              <div class="w-10 h-10 rounded-full bg-gold/20 font-semibold text-navy flex items-center justify-center text-sm">
+                DK
+              </div>
+              <div>
+                <p class="font-display text-navy font-semibold text-sm">David K.</p>
+                <p class="font-body text-navy/50 text-xs">Tamil &amp; English Reader</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-gold mb-4">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              </div>
+              <p class="font-body text-navy/80 text-sm leading-relaxed italic mb-6">
+                "Other AI Bible apps wanted $5 a week just to chat. Wisdom Walk is completely free and the pastoral answers always point straight back to Scripture."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+              <div class="w-10 h-10 rounded-full bg-gold/20 font-semibold text-navy flex items-center justify-center text-sm">
+                MR
+              </div>
+              <div>
+                <p class="font-display text-navy font-semibold text-sm">Maria R.</p>
+                <p class="font-body text-navy/50 text-xs">Small Group Leader</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-gold mb-4">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              </div>
+              <p class="font-body text-navy/80 text-sm leading-relaxed italic mb-6">
+                "The audio chapters with auto-advance make my 30-minute morning commute effortless. I’ve gone through Proverbs and Romans just during drive time."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+              <div class="w-10 h-10 rounded-full bg-gold/20 font-semibold text-navy flex items-center justify-center text-sm">
+                ST
+              </div>
+              <div>
+                <p class="font-display text-navy font-semibold text-sm">Samuel T.</p>
+                <p class="font-body text-navy/50 text-xs">Daily Commuter</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section id="faq" class="bg-white py-20 md:py-28">
+      <div class="fade-section max-w-4xl mx-auto px-5 md:px-8">
+        <div class="text-center mb-12">
+          <span class="font-body text-gold text-xs md:text-sm font-semibold tracking-[0.2em] uppercase">Got Questions?</span>
+          <h2 class="font-display text-navy text-3xl md:text-4xl font-bold mt-2">Frequently Asked Questions</h2>
+          <p class="font-body text-navy/70 text-base max-w-xl mx-auto mt-4">
+            Everything you need to know about Wisdom Walk, offline reading, privacy, and our free model.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Q1: Free Model -->
+          <details class="group bg-offwhite rounded-xl p-6 border border-slate-200/80 transition-all">
+            <summary class="flex justify-between items-center cursor-pointer font-display text-navy font-semibold text-lg list-none">
+              <span>Is Wisdom Walk really 100% free?</span>
+              <span class="text-gold transition-transform duration-300 group-open:rotate-180">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <p class="mt-4 font-body text-navy/70 text-sm md:text-base leading-relaxed">
+              Yes. Wisdom Walk is completely free with no subscriptions, no weekly paywalls, and no in-app purchases. All 9 Bible translations, audio chapters, and AI devotionals are accessible at zero cost.
+            </p>
+          </details>
+
+          <!-- Q2: Offline Access -->
+          <details class="group bg-offwhite rounded-xl p-6 border border-slate-200/80 transition-all">
+            <summary class="flex justify-between items-center cursor-pointer font-display text-navy font-semibold text-lg list-none">
+              <span>Do I need an internet connection to read the Bible?</span>
+              <span class="text-gold transition-transform duration-300 group-open:rotate-180">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <p class="mt-4 font-body text-navy/70 text-sm md:text-base leading-relaxed">
+              No. All 9 Bible translations are stored directly on your device for full offline access. You can read Scripture anywhere—even in airplane mode or remote areas without network coverage.
+            </p>
+          </details>
+
+          <!-- Q3: AI Trust -->
+          <details class="group bg-offwhite rounded-xl p-6 border border-slate-200/80 transition-all">
+            <summary class="flex justify-between items-center cursor-pointer font-display text-navy font-semibold text-lg list-none">
+              <span>Can I trust AI-generated devotionals and pastoral guidance?</span>
+              <span class="text-gold transition-transform duration-300 group-open:rotate-180">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <p class="mt-4 font-body text-navy/70 text-sm md:text-base leading-relaxed">
+              Wisdom Walk’s AI is strictly grounded in historical Scripture. It does not replace your pastor, church family, or biblical discernment; it serves as a companion study tool that cites chapter and verse to encourage and deepen your personal walk with God.
+            </p>
+          </details>
+
+          <!-- Q4: Privacy & Data -->
+          <details class="group bg-offwhite rounded-xl p-6 border border-slate-200/80 transition-all">
+            <summary class="flex justify-between items-center cursor-pointer font-display text-navy font-semibold text-lg list-none">
+              <span>What user data does the app collect?</span>
+              <span class="text-gold transition-transform duration-300 group-open:rotate-180">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <p class="mt-4 font-body text-navy/70 text-sm md:text-base leading-relaxed">
+              We respect your spiritual privacy. We collect only minimal contact info and identifiers necessary to authenticate your account and sync your preferences across devices. We never sell your personal data. Read our full <a href="privacy-policy.html" class="text-gold underline underline-offset-2">Privacy Policy</a>.
+            </p>
+          </details>
+
+          <!-- Q5: Competitors -->
+          <details class="group bg-offwhite rounded-xl p-6 border border-slate-200/80 transition-all">
+            <summary class="flex justify-between items-center cursor-pointer font-display text-navy font-semibold text-lg list-none">
+              <span>How is Wisdom Walk different from Haven or YouVersion?</span>
+              <span class="text-gold transition-transform duration-300 group-open:rotate-180">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </span>
+            </summary>
+            <p class="mt-4 font-body text-navy/70 text-sm md:text-base leading-relaxed">
+              Unlike Haven, which charges $4.99+/week, Wisdom Walk provides AI pastoral guidance completely free with zero subscription. And unlike generic readers, we feature 9 languages (including Tamil and Spanish), cinematic AI video reflections, and auto-advance audio chapters all in one clean app.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== ABOUT SECTION ===== -->
     <section data-id="70" id="about" class="bg-offwhite py-20 md:py-28 lg:py-32">
       <div data-id="71" class="fade-section max-w-6xl mx-auto px-5 md:px-8">
@@ -412,13 +728,25 @@
 
         <!-- Two-column layout -->
         <div data-id="75" class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start mb-14">
-          <!-- Left: Body text -->
+          <!-- Left: Mission & Purpose Block -->
           <div data-id="76">
-            <p data-id="77" id="about-body-k7l8" class="font-body text-navy/70 text-base md:text-lg leading-relaxed mb-6">
-              WisdomWalk Inc. was founded on the belief that wisdom is both a gift and a discipline — one that must be sought, shared, and lived out daily. Our team of dedicated leaders, mentors, and volunteers bring diverse backgrounds united by a single mission: to walk with people toward wholeness, purpose, and faith-filled living.
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-gold/15 text-gold flex items-center justify-center">
+                <i data-lucide="book-open" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h4 class="font-display text-navy text-xl font-bold">Dedicated to Scripture</h4>
+                <p class="text-gold font-body text-xs font-semibold uppercase tracking-wider">Free Biblical Study Tools for All</p>
+              </div>
+            </div>
+            <p data-id="77" id="about-body-k7l8" class="font-body text-navy/70 text-base leading-relaxed mb-4">
+              WisdomWalk was founded with a singular conviction: to make Scripture and spiritual reflection accessible to Christians across all languages and borders, completely free of subscriptions and financial paywalls.
             </p>
-            <p data-id="78" class="font-body text-navy/70 text-base md:text-lg leading-relaxed">
-              We are non-denominational, community-centered, and committed to making wisdom accessible to all.
+            <p class="font-body text-navy/70 text-base leading-relaxed mb-6">
+              By combining modern AI with offline Scripture access across 9 languages, our mission is to empower believers around the world to cultivate a consistent daily walk with God wherever life takes them.
+            </p>
+            <p class="font-body text-navy/60 text-sm">
+              We are non-denominational, community-centered, and dedicated to serving the global Church.
             </p>
           </div>
 
@@ -465,7 +793,7 @@
               <i data-id="98" data-lucide="map-pin" class="w-6 h-6 text-gold"></i>
             </div>
             <h4 data-id="99" class="font-display text-navy text-xl font-semibold mb-2">Location</h4>
-            <p data-id="100" class="font-body text-navy/60 text-sm leading-relaxed">Alpharetta, GA,<br data-id="101">United States</p>
+            <p data-id="100" class="font-body text-navy/60 text-sm leading-relaxed">Alpharetta, GA, 30005</p>
           </div>
 
           <!-- Email Card -->
@@ -520,14 +848,12 @@
             </ul>
           </div>
 
-          <!-- Programs -->
-          <div data-id="126">
-            <h5 data-id="127" class="font-body text-white text-sm font-semibold mb-4 tracking-wide">Programs</h5>
-            <ul data-id="128" class="space-y-2.5">
-              <li data-id="129"><span data-id="130" class="font-body text-white/40 text-sm">AI for Good</span></li>
-              <li data-id="131"><span data-id="132" class="font-body text-white/40 text-sm">Tech-Driven Outreach</span></li>
-              <li data-id="133"><span data-id="134" class="font-body text-white/40 text-sm">Faith &amp; Love</span></li>
-              <li data-id="135"><span data-id="136" class="font-body text-white/40 text-sm">Youth Programs</span></li>
+          <!-- Comparisons -->
+          <div>
+            <h5 class="font-body text-white text-sm font-semibold mb-4 tracking-wide">Compare</h5>
+            <ul class="space-y-2.5">
+              <li><a href="vs/haven.html" class="font-body text-white/40 text-sm hover:text-gold transition-colors">vs. Haven</a></li>
+              <li><a href="vs/bible-expert.html" class="font-body text-white/40 text-sm hover:text-gold transition-colors">vs. Bible Expert</a></li>
             </ul>
           </div>
 
@@ -544,17 +870,8 @@
           <div data-id="137">
             <h5 data-id="138" class="font-body text-white text-sm font-semibold mb-4 tracking-wide">Connect</h5>
             <div data-id="139" class="flex items-center gap-3">
-              <a data-id="140" href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-gold hover:text-navy transition-all duration-300" aria-label="LinkedIn">
-                <i data-id="141" data-lucide="linkedin" class="w-4 h-4"></i>
-              </a>
-              <a data-id="142" href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-gold hover:text-navy transition-all duration-300" aria-label="Facebook">
-                <i data-id="143" data-lucide="facebook" class="w-4 h-4"></i>
-              </a>
               <a data-id="144" href="https://www.instagram.com/wisdomwalkai/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-gold hover:text-navy transition-all duration-300" aria-label="Instagram">
                 <i data-id="145" data-lucide="instagram" class="w-4 h-4"></i>
-              </a>
-              <a data-id="146" href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-gold hover:text-navy transition-all duration-300" aria-label="YouTube">
-                <i data-id="147" data-lucide="youtube" class="w-4 h-4"></i>
               </a>
             </div>
           </div>
@@ -564,9 +881,6 @@
         <div data-id="148" class="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
           <p data-id="149" class="font-body text-white/30 text-xs text-center md:text-left">
             © 2026 WisdomWalk Inc. All rights reserved. | <a href="privacy-policy.html" class="hover:text-gold transition-colors underline underline-offset-2">Privacy Policy</a> | <a href="delete-account.html" class="hover:text-gold transition-colors underline underline-offset-2">Delete Account</a>
-          </p>
-          <p data-id="150" class="font-body text-white/30 text-xs">
-            Made by Copilot
           </p>
         </div>
       </div>
@@ -579,9 +893,14 @@
 
     <script>
       // === Icons (progressive enhancement) ===
-      if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
-        lucide.createIcons();
+      function renderIcons() {
+        if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
+          lucide.createIcons();
+        }
       }
+      renderIcons();
+      document.addEventListener("DOMContentLoaded", renderIcons);
+      window.addEventListener("load", renderIcons);
 
       // === Mobile Menu ===
       const mobileMenuBtn = document.getElementById('mobile-menu-btn-g7h8');

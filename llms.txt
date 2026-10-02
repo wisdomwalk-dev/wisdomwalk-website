@@ -1,0 +1,25 @@
+# Wisdom Walk
+
+> Wisdom Walk is a 100% free Bible study mobile app for iOS and Android with 9 offline Bible translations, audio chapters, daily AI devotionals, and pastoral guidance.
+
+## Core Features
+- **9 Offline Bible Translations**: Complete offline access to Scripture without needing internet or cellular data.
+- **Audio Chapters**: Spoken chapters with auto-advance and adjustable playback speed for commuters and audio listeners.
+- **Cinematic AI Bible Videos**: Engaging visual interpretations of Bible narratives.
+- **Daily Verse and Devotionals**: Personalized daily reflections powered by AI tailored to your walk with God.
+- **Pastoral Guidance Chat**: Scripture-grounded interactive answers for faith, prayer, and biblical study.
+- **Multilingual Support**: Available in 9 languages including English, Tamil, and Spanish.
+
+## Pricing Model
+- 100% Free
+- No subscriptions
+- No in-app purchases (IAP)
+- No ads
+
+## Official URLs
+- Website: https://wisdomwalk.studio/
+- iOS App Store: https://apps.apple.com/us/app/wisdom-walk/id6806832560
+- Google Play Store: https://play.google.com/store/apps/details?id=com.wisdomwalk.bible
+- Privacy Policy: https://wisdomwalk.studio/privacy-policy.html
+- Account Deletion: https://wisdomwalk.studio/delete-account.html
+- Contact: https://wisdomwalk.studio/#contact
